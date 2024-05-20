@@ -2,7 +2,7 @@
 import Slider from '@mui/material/Slider';
 import Stack from '@mui/material/Stack';
 
-function QuoteItem({quoteItem, handleUpdateSelectionValue, sliderValue}) {
+function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue}) {
   return (
     <div>
      <li>
@@ -13,8 +13,8 @@ function QuoteItem({quoteItem, handleUpdateSelectionValue, sliderValue}) {
           <h6>{quoteItem.quoteName.toUpperCase()}</h6>
           <Slider 
                 onChange={handleUpdateSelectionValue}
-                defaultValue={20} 
-                step={30}
+                defaultValue={quoteItem.startingValue} 
+                step={quoteItem.steps}
                 aria-label="Default" 
                 valueLabelDisplay="auto" 
                 sx={{
@@ -31,7 +31,7 @@ function QuoteItem({quoteItem, handleUpdateSelectionValue, sliderValue}) {
                 }}
             />
         </Stack>
-        <p>{sliderValue}</p>
+        <p>{selectionValue}</p>
      </li>
     </div>
   );

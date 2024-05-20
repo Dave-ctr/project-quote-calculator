@@ -1,11 +1,18 @@
-import React from 'react';
+import React from 'react'
 
-function MainLayout() {
+const MainLayout = (props) => {
   return (
-    <div>
-      MainLayout
+    <div 
+        style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'space-between'
+        }}
+    >
+        {props.children}
     </div>
-  );
+  )
 }
 
-export default MainLayout;
+export default MainLayout
+
