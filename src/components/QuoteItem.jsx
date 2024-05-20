@@ -2,7 +2,7 @@
 import Slider from '@mui/material/Slider';
 import Stack from '@mui/material/Stack';
 
-function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue}) {
+function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue, headerReference}) {
   return (
     <div>
      <li>
@@ -10,7 +10,12 @@ function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue}) {
           direction='row'
           spacing={2}
         >
-          <h6>{quoteItem.quoteName.toUpperCase()}</h6>
+          <h6 
+            ref={headerReference}
+            style={{fontSize: '1rem'}}
+            >
+            {quoteItem.quoteName.toUpperCase()}
+            </h6>
           <Slider 
                 onChange={handleUpdateSelectionValue}
                 defaultValue={quoteItem.startingValue} 

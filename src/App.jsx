@@ -15,28 +15,25 @@ function App() {
 
   const headerReference = useRef(null);
 
-
-
   const handleUpdateSelectionValue = (event, currentSliderValue) => {
       const value = event.target.value;
       setSliderValue(value)
       console.log(`Slider value = ${value}`);
+      console.log("currentSliderValue = ", currentSliderValue);
+      console.log("headerReference = ", headerReference);
+      console.log("headerReference.current = ", headerReference.current);
+      
+      if(headerReference.current) {
+        console.log("Im in the headerReference if statement");
+         const quoteName = headerReference.current.innerText;
+         console.log("The slider title: ", quoteName);
+         console.log("The slider value: ", currentSliderValue)
+         // Later on the if statement will be using 
+         // the quoteName and the currentSliderValue to update the state of selectionValue
+        }
   
-    if(headerReference.current) {
-        const quoteName = headerReference.current.innerText;
-        console.log("The slider title: ", quoteName);
-        console.log("The slider value: ", currentSliderValue)
-        // Later on the if statement will be using 
-        // the quoteName and the currentSliderValue to update the state of selectionValue
-        // if(
-        //     quoteName === "NUMBER OF PAGES" && 
-        //     (currentSliderValue > 25 && currentSliderValue <= 50) 
-        // ) {
-        //     console.log("IN IF STATEMENT")
-        //     setSelectionValue("50-150")
-        // }
-    }
-}
+        }
+      
 
   return (
     <>
@@ -51,6 +48,7 @@ function App() {
                   handleUpdateSelectionValue={handleUpdateSelectionValue}
                   sliderValue={sliderValue}
                   selectionValue={selectionValue}
+                  headerReference={headerReference}
                 />
               }
             />

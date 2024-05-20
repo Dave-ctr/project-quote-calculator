@@ -1,7 +1,7 @@
 import QuoteItem from "../components/QuoteItem";
 import { Link } from "react-router-dom";
 
-function Home({ quote, handleUpdateSelectionValue, sliderValue,selectionValue }) {
+function Home({ quote, handleUpdateSelectionValue, sliderValue,selectionValue, headerReference }) {
   return (
     <>
       <h1>Project Quote Calculator</h1>
@@ -17,6 +17,7 @@ function Home({ quote, handleUpdateSelectionValue, sliderValue,selectionValue })
             handleUpdateSelectionValue={handleUpdateSelectionValue}
             sliderValue={sliderValue}
             selectionValue={selectionValue}
+            headerReference={headerReference}
           />
         ))}
       </ul>
