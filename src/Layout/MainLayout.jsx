@@ -6,7 +6,10 @@ const MainLayout = (props) => {
         style={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'space-between'
+            alignItems: 'space-between',
+            marginRight: "50px",
+            marginLeft: "50px"
+
         }}
     >
         {props.children}

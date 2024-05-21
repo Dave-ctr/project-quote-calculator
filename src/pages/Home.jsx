@@ -18,8 +18,8 @@ function Home({ quoteListItems, handleUpdateSelectionValue, sliderValues,selecti
           <QuoteItem
             key={index}
             quoteItem={quoteItem}
-            handleUpdateSelectionValue={(event, currentSliderValue) => handleUpdateSelectionValue(event, currentSliderValue, index)}
-            sliderValue={sliderValues[index]}
+            handleUpdateSelectionValue={(event, sliderValue) => handleUpdateSelectionValue(event, sliderValue, index)}
+            itemSliderValue={sliderValues[index]}
             selectionValue={selectionValue}
             headerReference={headerRefs.current[index]}
           />

@@ -1,12 +1,13 @@
 export const initialQuoteItemsArray = [
     {
       quoteName: 'number of pages',
-      startingValue: 25,
-      steps: 25,
-      selectionOne: '10 - 50',
-      selectionTwo: '50 - 150',
-      selectionThree: '150 - 250',
-      selectionFour: '250+'
+      startingValue: 20,
+      steps: 20,
+      selectionOne: '1 - 10',
+      selectionTwo: '10 - 50',
+      selectionThree: '50 - 150',
+      selectionFour: '150 250',
+      selectionFive: '250+',
     },
     {
       quoteName: 'style of design',
@@ -21,15 +22,15 @@ export const initialQuoteItemsArray = [
       quoteName: 'seo integration',
       startingValue: 50,
       steps: 50,
-      selectionOne: 'Yes',
-      selectionTwo: 'No'
+      selectionOne: 'No',
+      selectionTwo: 'Yes'
     },
     {
       quoteName: 'responsive design',
-      startingValue: 100,
+      startingValue: 50,
       steps: 50,
-      selectionOne: 'Yes',
-      selectionTwo: 'No'
+      selectionOne: 'No',
+      selectionTwo: 'Yes'
     },
     {
       quoteName: 'e-commerce functionality',
