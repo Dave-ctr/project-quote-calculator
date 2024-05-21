@@ -12,7 +12,7 @@ function App() {
     initialQuoteItemsArray.map((item) => item.startingValue)
   );
   const [selectionValues, setSelectionValues] = useState(
-    initialQuoteItemsArray.map(() => "")
+    initialQuoteItemsArray.map((item) => item.selectionOne)
   );
 
   const headerRefs = useRef([]);
