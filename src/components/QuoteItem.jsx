@@ -41,7 +41,7 @@ function QuoteItem({
             }}
           />
         </Stack>
-        <p>{itemSliderValue}</p>
+        <p>{selectionValue}</p>
       </li>
     </div>
   );

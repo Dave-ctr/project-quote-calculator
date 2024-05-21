@@ -6,7 +6,7 @@ export const initialQuoteItemsArray = [
       selectionOne: '1 - 10',
       selectionTwo: '10 - 50',
       selectionThree: '50 - 150',
-      selectionFour: '150 250',
+      selectionFour: '150 - 250',
       selectionFive: '250+',
     },
     {
