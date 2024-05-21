@@ -7,7 +7,7 @@ import QuoteFormPage from "./pages/QuoteFormPage.jsx";
 import MainLayout from "./Layout/MainLayout.jsx";
 
 function App() {
-  const [quoteListItems, setQuoteListItems] = useState(initialQuoteItemsArray);
+  const [quoteListItems, _setQuoteListItems] = useState(initialQuoteItemsArray);
   const [sliderValues, setSliderValues] = useState(
     initialQuoteItemsArray.map((item) => item.startingValue)
   );
@@ -17,7 +17,7 @@ function App() {
 
   const headerRefs = useRef([]);
 
-  const handleUpdateSelectionValue = (event, sliderValue, index) => {
+  const handleUpdateSelectionValue = (_event, sliderValue, index) => {
     const updatedSliderValues = [...sliderValues];
     updatedSliderValues[index] = sliderValue;
     setSliderValues(updatedSliderValues);
@@ -137,7 +137,17 @@ function App() {
         />
         <Route
           path="/register"
-          element={<MainLayout children={<QuoteFormPage />} />}
+          element={
+            <MainLayout
+              children={
+                <QuoteFormPage
+                  quoteListItems={quoteListItems}
+                  selectionValues={selectionValues}
+                  headerRefs={headerRefs}
+                />
+              }
+            />
+          }
         />
       </Routes>
     </>
