@@ -2,7 +2,7 @@ import React from "react";
 import QuoteItem from "../components/QuoteItem";
 import { Link } from "react-router-dom";
 
-function Home({ quoteListItems, handleUpdateSelectionValue, sliderValues,selectionValue, headerRefs }) {
+function Home({ quoteListItems, handleUpdateSelectionValue, sliderValues,selectionValues, headerRefs }) {
 
   headerRefs.current = quoteListItems.map((_, i) => headerRefs.current[i] ?? React.createRef());
 
@@ -20,7 +20,7 @@ function Home({ quoteListItems, handleUpdateSelectionValue, sliderValues,selecti
             quoteItem={quoteItem}
             handleUpdateSelectionValue={(event, sliderValue) => handleUpdateSelectionValue(event, sliderValue, index)}
             itemSliderValue={sliderValues[index]}
-            selectionValue={selectionValue}
+            selectionValue={selectionValues[index]}
             headerReference={headerRefs.current[index]}
           />
         ))}
