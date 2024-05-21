@@ -2,7 +2,7 @@
 import Slider from '@mui/material/Slider';
 import Stack from '@mui/material/Stack';
 
-function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue, headerReference}) {
+function QuoteItem({quoteItem, handleUpdateSelectionValue, sliderValue, selectionValue, headerReference}) {
   return (
     <div>
      <li>
@@ -36,7 +36,7 @@ function QuoteItem({quoteItem, handleUpdateSelectionValue, selectionValue, heade
                 }}
             />
         </Stack>
-        <p>{selectionValue}</p>
+        <p>{sliderValue}</p>
      </li>
     </div>
   );

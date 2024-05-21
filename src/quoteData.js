@@ -1,4 +1,4 @@
-export const initialQuoteArray = [
+export const initialQuoteItemsArray = [
     {
       quoteName: 'number of pages',
       startingValue: 25,

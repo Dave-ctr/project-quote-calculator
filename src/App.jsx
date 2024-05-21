@@ -1,39 +1,48 @@
 import { useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { initialQuoteArray } from "./quoteData.js";
+import { initialQuoteItemsArray } from "./quoteData.js";
 import Home from "./pages/Home.jsx";
 import QuoteFormPage from "./pages/QuoteFormPage.jsx";
 import MainLayout from "./Layout/MainLayout.jsx";
 
 function App() {
-  const [quote, setQuote] = useState(initialQuoteArray);
+  const [quote, setQuote] = useState(initialQuoteItemsArray);
   const [sliderValue, setSliderValue] = useState(
-    initialQuoteArray.startingValue
+    initialQuoteItemsArray.startingValue
   );
-  const [selectionValue, setSelectionValue] = useState('');
+  const [selectionValue, setSelectionValue] = useState("");
 
-  const headerReference = useRef(null);
+  const headerRefs = useRef([]);
 
-  const handleUpdateSelectionValue = (event, currentSliderValue) => {
-      const value = event.target.value;
-      setSliderValue(value)
-      console.log(`Slider value = ${value}`);
-      console.log("currentSliderValue = ", currentSliderValue);
+  const handleUpdateSelectionValue = (event, currentSliderValue, index) => {
+    const value = event.target.value;
+    setSliderValue(value);
+    console.log(`Slider value = ${value}`);
+    console.log("currentSliderValue = ", currentSliderValue);
+
+    const headerReference = headerRefs.current[index];
+
+    if (headerReference) {
+      console.log("Im in the headerReference if statement");
+      const quoteName = headerReference.current.innerText;
+      console.log("The slider title: ", quoteName);
+      console.log("The slider value: ", currentSliderValue);
       console.log("headerReference = ", headerReference);
-      console.log("headerReference.current = ", headerReference.current);
-      
-      if(headerReference.current) {
-        console.log("Im in the headerReference if statement");
-         const quoteName = headerReference.current.innerText;
-         console.log("The slider title: ", quoteName);
-         console.log("The slider value: ", currentSliderValue)
-         // Later on the if statement will be using 
-         // the quoteName and the currentSliderValue to update the state of selectionValue
-        }
-  
-        }
-      
+   
+      // Later on the if statement will be using
+      // the quoteName and the currentSliderValue to update the state of selectionValue
+
+      if (
+        quoteName === "NUMBER OF PAGES" &&
+        currentSliderValue > 25 &&
+        currentSliderValue <= 50
+      ) {
+        console.log("IN IF STATEMENT");
+        setSelectionValue("50-150");
+      }
+    }
+  };
 
   return (
     <>
@@ -48,7 +57,7 @@ function App() {
                   handleUpdateSelectionValue={handleUpdateSelectionValue}
                   sliderValue={sliderValue}
                   selectionValue={selectionValue}
-                  headerReference={headerReference}
+                  headerRefs={headerRefs}
                 />
               }
             />
