@@ -8,6 +8,7 @@ export const initialQuoteItemsArray = [
       selectionThree: '50 - 150',
       selectionFour: '150 - 250',
       selectionFive: '250+',
+      costPerPage: 100
     },
     {
       quoteName: 'style of design',
@@ -16,21 +17,30 @@ export const initialQuoteItemsArray = [
       selectionOne: 'Simple',
       selectionTwo: 'Moderate',
       selectionThree: 'High End',
-      selectionFour: 'World Class'
+      selectionFour: 'World Class',
+      costOne: 1000,
+      costTwo: 3000,
+      costThree: 5000,
+      costFour: 10000
     },
     {
       quoteName: 'seo integration',
       startingValue: 50,
       steps: 50,
       selectionOne: 'No',
-      selectionTwo: 'Yes'
+      selectionTwo: 'Yes',
+      costOne: 0,
+      costTwo: 2000,
+      costPerPage: 100
     },
     {
       quoteName: 'responsive design',
       startingValue: 50,
       steps: 50,
       selectionOne: 'No',
-      selectionTwo: 'Yes'
+      selectionTwo: 'Yes',
+      costOne: 0,
+      costTwo: 1500
     },
     {
       quoteName: 'e-commerce functionality',
@@ -39,7 +49,11 @@ export const initialQuoteItemsArray = [
       selectionOne: 'None',
       selectionTwo: 'Basic',
       selectionThree: 'Advanced',
-      selectionFour: 'Enterprise'
+      selectionFour: 'Enterprise',
+      costOne: 0,
+      costTwo: 3000,
+      costThree: 6000,
+      costFour: 10000
     },
     {
       quoteName: 'database integration',
@@ -48,7 +62,11 @@ export const initialQuoteItemsArray = [
       selectionOne: 'None',
       selectionTwo: 'Basic',
       selectionThree: 'Advanced',
-      selectionFour: 'Enterprise'
+      selectionFour: 'Enterprise',
+      costOne: 0,
+      costTwo: 2000,
+      costThree: 5000,
+      costFour: 10000,
     },
     {
       quoteName: 'cms integration',
@@ -57,7 +75,11 @@ export const initialQuoteItemsArray = [
       selectionOne: 'None',
       selectionTwo: 'Basic',
       selectionThree: 'Advanced',
-      selectionFour: 'Enterprise'
+      selectionFour: 'Enterprise',
+      costOne: 0,
+      costTwo: 2000,
+      costThree: 4000,
+      costFour: 8000
     },
     {
       quoteName: 'platform',
@@ -71,5 +93,13 @@ export const initialQuoteItemsArray = [
       selectionSix: 'Squarespace',
       selectionSeven: 'Wordpress',
       selectionEight: 'Woocommerce',
+      discountOne: 0,
+      discountTwo: 10,
+      discountThree: 25,
+      discountFour: 30,  
+      discountFive: 30,
+      discountSix: 25,
+      discountSeven: 25,
+      discountEight: 25
     },
 ]

@@ -17,6 +17,14 @@ function App() {
 
   const headerRefs = useRef([]);
 
+  const pageRanges = {
+    '1 - 10': { min: 1, max: 10 },
+    '10 - 50': { min: 10, max: 50 },
+    '50 - 150': { min: 50, max: 150 },
+    '150 - 250': { min: 150, max: 250 },
+    '250+': { min: 250, max: 250 }
+  };
+
   const handleUpdateSelectionValue = (_event, sliderValue, index) => {
     const updatedSliderValues = [...sliderValues];
     updatedSliderValues[index] = sliderValue;
@@ -116,6 +124,70 @@ function App() {
     }
   };
 
+  const calculateTotalCost = (selectionValues) => {
+    const designCosts = {
+      'Simple': 1000,
+      'Moderate': 3000,
+      'High End': 5000,
+      'World Class': 10000,
+    };
+
+    const eCommerceCosts = {
+      None: 0,
+      Basic: 3000,
+      Advanced: 6000,
+      Enterprise: 10000,
+    };
+
+    const databaseCosts = {
+      None: 0,
+      Basic: 2000,
+      Advanced: 5000,
+      Enterprise: 10000,
+    };
+
+    const cmsCosts = {
+      None: 0,
+      Basic: 2000,
+      Advanced: 4000,
+      Enterprise: 8000,
+    };
+
+    const platformDiscounts = {
+      Custom: 0,
+      Shopify: 25,
+      Webflow: 10,
+      Wix: 30,
+      Rocketspark: 30,
+      Squarespace: 25,
+      Wordpress: 25,
+      Woocommerce: 25,
+    };
+
+    const selectedPagesRange = pageRanges[selectionValues[0]];
+    const minPages = selectedPagesRange.min;
+    const maxPages = selectedPagesRange.max;
+
+    const baseCost = designCosts[selectionValues[1]];
+    const pagesCostMin = minPages * 100;
+    const pagesCostMax = maxPages * 100;
+    const seoCostMin = selectionValues[2] === 'Yes' ? (minPages * 100 + 2000) : 0;
+    const seoCostMax = selectionValues[2] === 'Yes' ? (maxPages * 100 + 2000) : 0;
+    const responsiveDesignCost = selectionValues[3] === 'Yes' ? 1500 : 0;
+    const eCommerceCost = eCommerceCosts[selectionValues[4]];
+    const databaseCost = databaseCosts[selectionValues[5]];
+    const cmsCost = cmsCosts[selectionValues[6]];
+    const platformDiscount = platformDiscounts[selectionValues[7]] / 100;
+
+    const totalCostMinBeforeDiscount = baseCost + pagesCostMin + seoCostMin + responsiveDesignCost + eCommerceCost + databaseCost + cmsCost;
+    const totalCostMaxBeforeDiscount = baseCost + pagesCostMax + seoCostMax + responsiveDesignCost + eCommerceCost + databaseCost + cmsCost;
+
+    const totalCostMin = totalCostMinBeforeDiscount * (1 - platformDiscount);
+    const totalCostMax = totalCostMaxBeforeDiscount * (1 - platformDiscount);
+
+    return `$${totalCostMin} - $${totalCostMax}`;
+  };
+
   return (
     <>
       <Routes>
@@ -144,6 +216,7 @@ function App() {
                   quoteListItems={quoteListItems}
                   selectionValues={selectionValues}
                   headerRefs={headerRefs}
+                  calculateTotalCost={calculateTotalCost}
                 />
               }
             />
