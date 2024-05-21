@@ -185,7 +185,7 @@ function App() {
     const totalCostMin = totalCostMinBeforeDiscount * (1 - platformDiscount);
     const totalCostMax = totalCostMaxBeforeDiscount * (1 - platformDiscount);
 
-    return `$${totalCostMin} - $${totalCostMax}`;
+    return selectionValues[0] === '250+' ? `$${Math.ceil(totalCostMin)} - Sky's The Limit Baby` : `$${Math.ceil(totalCostMin)} - $${Math.ceil(totalCostMax)}`;
   };
 
   return (
