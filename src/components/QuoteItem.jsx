@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import Slider from '@mui/material/Slider';
 import Stack from '@mui/material/Stack';
 

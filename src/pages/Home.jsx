@@ -2,9 +2,9 @@ import React from "react";
 import QuoteItem from "../components/QuoteItem";
 import { Link } from "react-router-dom";
 
-function Home({ quote, handleUpdateSelectionValue, sliderValue,selectionValue, headerRefs }) {
+function Home({ quoteListItems, handleUpdateSelectionValue, sliderValues,selectionValue, headerRefs }) {
 
-  headerRefs.current = quote.map((_, i) => headerRefs.current[i] ?? React.createRef());
+  headerRefs.current = quoteListItems.map((_, i) => headerRefs.current[i] ?? React.createRef());
 
   return (
     <>
@@ -14,12 +14,12 @@ function Home({ quote, handleUpdateSelectionValue, sliderValue,selectionValue, h
         Pricing" button for a free, instant quote.
       </p>
       <ul>
-        {quote.map((quoteItem, index) => (
+        {quoteListItems.map((quoteItem, index) => (
           <QuoteItem
             key={index}
             quoteItem={quoteItem}
             handleUpdateSelectionValue={(event, currentSliderValue) => handleUpdateSelectionValue(event, currentSliderValue, index)}
-            sliderValue={sliderValue}
+            sliderValue={sliderValues[index]}
             selectionValue={selectionValue}
             headerReference={headerRefs.current[index]}
           />
