@@ -19,7 +19,7 @@ const GlobalStyles = () => (
         font-weight: 400; /* You can adjust the font-weight as needed */
         font-style: normal;
       }
-      body {
+      body, button {
         font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to the body */
       }
     `}
@@ -83,8 +83,7 @@ function Home({
       borderRadius: '10px',
       backgroundColor: '#ff2d65',
       cursor: 'pointer',
-      transition: 'background-color 0.5s ease',
-      transition: 'color 0.5s ease'
+      transition: 'background-color 0.5s ease, color 0.5s ease',
     }}
     onMouseEnter={(e) => (e.target.style.backgroundColor = '#41426d', e.target.style.color = 'white')}
     onMouseLeave={(e) => (e.target.style.backgroundColor = '#ff2d65', e.target.style.color = 'black')}
