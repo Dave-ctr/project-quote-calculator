@@ -39,6 +39,7 @@ function Home({
   sliderValues,
   selectionValues,
   headerRefs,
+  calculateTotalCost
 }) {
   headerRefs.current = quoteListItems.map(
     (_, i) => headerRefs.current[i] ?? React.createRef()
@@ -77,6 +78,7 @@ function Home({
         <div style={{ margin: "25px auto", width: "fit-content" }}>
         <Link to="/register" style={{ textDecoration: 'none'}}>
         <button
+        onClick={calculateTotalCost(selectionValues)}
     style={{
       padding: "5px 15px",
       fontSize: '1.5rem',

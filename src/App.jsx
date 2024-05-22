@@ -14,6 +14,9 @@ function App() {
     initialQuoteItemsArray.map((item) => item.selectionOne)
   );
 
+  const [selectionValueOne, setSelectionValueOne] = useState('');
+  const [selectionValueTwo, setSelectionValueTwo] = useState('');
+
   const headerRefs = useRef([]);
 
   const pageRanges = {
@@ -184,7 +187,17 @@ function App() {
     const totalCostMin = totalCostMinBeforeDiscount * (1 - platformDiscount);
     const totalCostMax = totalCostMaxBeforeDiscount * (1 - platformDiscount);
 
-    return selectionValues[0] === '250+' ? `$${Math.ceil(totalCostMin)} - Sky's The Limit Baby` : `$${Math.ceil(totalCostMin)} - $${Math.ceil(totalCostMax)}`;
+    if (selectionValues[0] === '250+') { 
+      let selectionValueOne = `$${Math.ceil(totalCostMin)}`;
+      let selectionValueTwo = `Sky's The Limit Baby`; 
+      setSelectionValueOne(selectionValueOne);
+      setSelectionValueTwo(selectionValueTwo);
+    }else{ 
+      let selectionValueOne = `$${Math.ceil(totalCostMin)}`;
+      let selectionValueTwo = `$${Math.ceil(totalCostMax)}`;
+      setSelectionValueOne(selectionValueOne);
+      setSelectionValueTwo(selectionValueTwo);
+    };
   };
 
   return (
@@ -201,6 +214,7 @@ function App() {
                   sliderValues={sliderValues}
                   selectionValues={selectionValues}
                   headerRefs={headerRefs}
+                  calculateTotalCost={calculateTotalCost}
                 />
               }
             />
@@ -215,7 +229,8 @@ function App() {
                   quoteListItems={quoteListItems}
                   selectionValues={selectionValues}
                   headerRefs={headerRefs}
-                  calculateTotalCost={calculateTotalCost}
+                  selectionValueOne={selectionValueOne}
+                  selectionValueTwo={selectionValueTwo}
                 />
               }
             />
