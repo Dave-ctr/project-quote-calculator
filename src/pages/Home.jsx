@@ -48,7 +48,7 @@ function Home({
       style={{
         backgroundColor: " #0e2949",
         color: "white",
-        padding: "2rem",
+        padding: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -61,7 +61,7 @@ function Home({
         Use the sliders below to indicate your needs, then click the "See
         Pricing" button for a free, instant quote.
       </p>
-      <ul style={{ listStyle: "none" }}>
+      <ul className='quoteForm' style={{ listStyle: "none", display: 'grid' }}>
         {quoteListItems.map((quoteItem, index) => (
           <QuoteItem
             key={index}

@@ -8,8 +8,8 @@ const MainLayout = (props) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'space-between',
-            marginRight: "50px",
-            marginLeft: "50px"
+            marginRight: "10px",
+            marginLeft: "10px"
 
         }}
     >
