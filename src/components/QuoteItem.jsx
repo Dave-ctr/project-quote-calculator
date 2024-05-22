@@ -16,7 +16,6 @@ function QuoteItem({
         </h6>
       </li>
       <li>
-        {" "}
         <Slider
           onChange={(event, sliderValue) => {
             if (sliderValue >= quoteItem.startingValue) {
