@@ -74,8 +74,8 @@ function Home({
           />
         ))}
       </ul>
-      <Link to="/register" style={{ textDecoration: 'none', width:'50px' }}>
         <div style={{ margin: "25px auto", width: "fit-content" }}>
+        <Link to="/register" style={{ textDecoration: 'none'}}>
         <button
     style={{
       padding: "5px 15px",
@@ -84,14 +84,16 @@ function Home({
       backgroundColor: '#ff2d65',
       cursor: 'pointer',
       transition: 'background-color 0.5s ease',
+      transition: 'color 0.5s ease'
     }}
     onMouseEnter={(e) => (e.target.style.backgroundColor = '#41426d', e.target.style.color = 'white')}
     onMouseLeave={(e) => (e.target.style.backgroundColor = '#ff2d65', e.target.style.color = 'black')}
   >
+      
     See Pricing
   </button>
-        </div>
       </Link>
+        </div>
     </div>
   );
 }
