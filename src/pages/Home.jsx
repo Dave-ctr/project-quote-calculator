@@ -28,6 +28,7 @@ const GlobalStyles = () => (
 
 const Heading = styled("h1")({
   fontFamily: "Recoleta, sans-serif",
+  fontSize:'3rem',
   fontWeight: "bolder",
   textAlign: "center",
 });
@@ -45,19 +46,16 @@ function Home({
 
   return (
     <div
+    className="quoteItemContainer"
       style={{
         backgroundColor: " #0e2949",
         color: "white",
-        padding: "10px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        gap: "2rem",
+        padding: "25px"
       }}
     >
       <GlobalStyles />
-      <Heading>Project Quote Calculator</Heading>
-      <p style={{ textAlign: "center" }}>
+      <Heading >Project Quote Calculator</Heading>
+      <p style={{ textAlign: "center", margin:'25px', fontSize:'1.25rem'}}>
         Use the sliders below to indicate your needs, then click the "See
         Pricing" button for a free, instant quote.
       </p>

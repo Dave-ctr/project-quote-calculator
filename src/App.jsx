@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
 import { initialQuoteItemsArray } from "./quoteData.js";
 import Home from "./pages/Home.jsx";
 import QuoteFormPage from "./pages/QuoteFormPage.jsx";

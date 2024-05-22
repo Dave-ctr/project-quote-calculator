@@ -10,7 +10,7 @@ function QuoteItem({
 }) {
   return (
     <>
-      <li style={{display:'flex', alignItems:'center', fontWeight:'bold'}}>
+      <li style={{display:'flex', alignItems:'center', }}>
         <h6 ref={headerReference} style={{display:'flex', justifyContent:'flex-start', alignItems:'center', fontWeight:'bold'}}>
           {quoteItem.quoteName.toUpperCase()}
         </h6>
@@ -43,9 +43,8 @@ function QuoteItem({
           }}
         />
       </li>
-      <li className='quoteSelectionValue' style={{backgroundColor:'white', color: '#0e2949', display:'flex', justifyContent:'center', alignItems:'center', fontWeight:'bold', borderRadius:'5px'}}>
-        {" "}
-        <p>{selectionValue}</p>
+      <li className='quoteSelectionValue' style={{backgroundColor:'white', color: '#0e2949', display:'flex', justifyContent:'center', alignItems:'center', fontWeight:'bolder', borderRadius:'10px'}}>
+        <p style={{fontWeight:'bold'}}>{selectionValue}</p>
       </li>
     </>
   );

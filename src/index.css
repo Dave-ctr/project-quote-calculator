@@ -8,18 +8,30 @@
   .quoteForm {
     grid-template-columns: 1fr;
     font-size: 1rem;
+    font-weight:'bold';
     row-gap: 10px;
   }
   .quoteForm>li h6{
     font-size: 1rem;
   }
+  .quoteForm>li p{
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
   .quoteSelectionValue{
     margin-bottom: 2rem;
     padding:15px;
   }
+  .quoteItemContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+   }
 }
 
 @media (min-width: 769px) {
+ .quoteItemContainer{
+  margin: 50px;
+ }
   .quoteForm {
     grid-template-columns: 0.5fr 1fr 0.5fr;
   column-gap: 20px;
@@ -27,5 +39,8 @@
 }
 .quoteForm>li h6{
   font-size: 1rem;
+}
+.quoteForm>li p{
+  font-size: 1.25rem;
 }
 }
