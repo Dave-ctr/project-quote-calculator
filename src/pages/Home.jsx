@@ -50,7 +50,8 @@ function Home({
       style={{
         backgroundColor: " #0e2949",
         color: "white",
-        padding: "25px"
+        padding: "25px",
+        borderRadius: "10px",
       }}
     >
       <GlobalStyles />
@@ -73,9 +74,22 @@ function Home({
           />
         ))}
       </ul>
-      <Link to="/register">
-        <div style={{ margin: "0 auto", width: "fit-content" }}>
-          <button style={{ margin: "" }}>See Pricing</button>
+      <Link to="/register" style={{ textDecoration: 'none', width:'50px' }}>
+        <div style={{ margin: "25px auto", width: "fit-content" }}>
+        <button
+    style={{
+      padding: "5px 15px",
+      fontSize: '1.5rem',
+      borderRadius: '10px',
+      backgroundColor: '#ff2d65',
+      cursor: 'pointer',
+      transition: 'background-color 0.5s ease',
+    }}
+    onMouseEnter={(e) => (e.target.style.backgroundColor = '#41426d', e.target.style.color = 'white')}
+    onMouseLeave={(e) => (e.target.style.backgroundColor = '#ff2d65', e.target.style.color = 'black')}
+  >
+    See Pricing
+  </button>
         </div>
       </Link>
     </div>
