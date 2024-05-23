@@ -22,7 +22,7 @@
     margin-bottom: 2rem;
     padding:15px;
   }
-  .quoteItemContainer{
+  .quoteFormContainer{
     margin: 10px;
     padding: 20px;
     gap: 20px;
@@ -32,15 +32,26 @@
     grid-template-columns: 1fr;
     gap: 10px;
    }
+   .quoteFormList{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+   }
+   .quoteFormList label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
 }
 
 @media (min-width: 769px) {
- .quoteItemContainer{
+ .quoteFormContainer{
   margin: 50px;
   padding: "75px",
  }
   .quoteForm {
-    grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
   column-gap: 20px;
   row-gap: 15px;
 }
@@ -53,6 +64,30 @@
 .quoteDetailsList{
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  padding: 50px;
+  margin-top: 25px;
+  padding: 0px 50px 50px;
  }
+ .quoteFormList{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 25px;
+  padding: 0px 50px;
+ }
+ .quoteFormList label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+ }
+.quoteFormList input{
+  background-color: hsl(240, 100%, 10%);
+color: white;
+font-size: 1rem;
+font-weight: bold;
+  border-radius: 10px;
+  padding: 0px 20px;
+}
 }

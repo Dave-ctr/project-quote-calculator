@@ -28,7 +28,7 @@ const GlobalStyles = () => (
 
 const Heading = styled("h1")({
   fontFamily: "Recoleta, sans-serif",
-  fontSize:'3rem',
+  fontSize: "3rem",
   fontWeight: "bolder",
   textAlign: "center",
 });
@@ -39,7 +39,7 @@ function Home({
   sliderValues,
   selectionValues,
   headerRefs,
-  calculateTotalCost
+  calculateTotalCost,
 }) {
   headerRefs.current = quoteListItems.map(
     (_, i) => headerRefs.current[i] ?? React.createRef()
@@ -47,7 +47,7 @@ function Home({
 
   return (
     <div
-    className="quoteItemContainer"
+      className="quoteItemContainer"
       style={{
         backgroundColor: " #0e2949",
         color: "white",
@@ -56,12 +56,12 @@ function Home({
       }}
     >
       <GlobalStyles />
-      <Heading >Project Quote Calculator</Heading>
-      <p style={{ textAlign: "center", margin:'25px', fontSize:'1.25rem'}}>
+      <Heading>Project Quote Calculator</Heading>
+      <p style={{ textAlign: "center", margin: "25px", fontSize: "1.25rem" }}>
         Use the sliders below to indicate your needs, then click the "See
         Pricing" button for a free, instant quote.
       </p>
-      <ul className='quoteForm' style={{ listStyle: "none", display: 'grid' }}>
+      <ul className="quoteForm" style={{ listStyle: "none", display: "grid" }}>
         {quoteListItems.map((quoteItem, index) => (
           <QuoteItem
             key={index}
@@ -75,26 +75,31 @@ function Home({
           />
         ))}
       </ul>
-        <div style={{ margin: "25px auto", width: "fit-content" }}>
-        <Link to="/register" style={{ textDecoration: 'none'}}>
-        <button
-        onClick={calculateTotalCost(selectionValues)}
-    style={{
-      padding: "5px 15px",
-      fontSize: '1.5rem',
-      borderRadius: '10px',
-      backgroundColor: '#ff2d65',
-      cursor: 'pointer',
-      transition: 'background-color 0.5s ease, color 0.5s ease',
-    }}
-    onMouseEnter={(e) => (e.target.style.backgroundColor = '#41426d', e.target.style.color = 'white')}
-    onMouseLeave={(e) => (e.target.style.backgroundColor = '#ff2d65', e.target.style.color = 'black')}
-  >
-      
-    See Pricing
-  </button>
-      </Link>
-        </div>
+      <div style={{ margin: "25px auto", width: "fit-content" }}>
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <button
+            onClick={() => calculateTotalCost(selectionValues)}
+            style={{
+              padding: "5px 25px",
+              fontSize: "1.5rem",
+              borderRadius: "10px",
+              backgroundColor: "#ff2d65",
+              cursor: "pointer",
+              transition: "background-color 0.5s ease, color 0.5s ease",
+            }}
+            onMouseEnter={(e) => (
+              (e.target.style.backgroundColor = "#41426d"),
+              (e.target.style.color = "white")
+            )}
+            onMouseLeave={(e) => (
+              (e.target.style.backgroundColor = "#ff2d65"),
+              (e.target.style.color = "black")
+            )}
+          >
+            See Pricing
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
