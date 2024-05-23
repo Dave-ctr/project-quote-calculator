@@ -70,6 +70,9 @@ margin-bottom: 25px;
  .quoteItemContainer{
   margin: 50px;
  }
+ .quoteItemContainer button{
+  margin-top: 15px;
+ }
   .quoteForm {
   grid-template-columns: 0.5fr 1fr 0.5fr;
   column-gap: 20px;
@@ -84,7 +87,7 @@ margin-bottom: 25px;
 .quoteDetailsList{
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  margin-top: 25px;
+  margin-top: 30px;
   padding: 0px 50px 50px;
  }
  .quoteFormList{

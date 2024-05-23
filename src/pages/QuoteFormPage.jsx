@@ -15,11 +15,11 @@ const GlobalStyles = () => (
       @font-face {
         font-family: 'Montserrat';
         src: url(${montserratFont}) format('truetype');
-        font-weight: 400; /* You can adjust the font-weight as needed */
+        font-weight: 400;
         font-style: normal;
       }
       body, button {
-        font-family: 'Montserrat', sans-serif; /* Apply Montserrat font to the body */
+        font-family: 'Montserrat', sans-serif; 
       }
     `}
   />
