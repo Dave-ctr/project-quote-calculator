@@ -44,7 +44,6 @@ function QuoteFormPage({ quoteListItems, selectionValues, headerRefs, selectionV
       style={{
         backgroundColor: " #0e2949",
         color: "white",
-        padding: "25px",
         borderRadius: "10px",
       }}
     >
@@ -56,20 +55,22 @@ function QuoteFormPage({ quoteListItems, selectionValues, headerRefs, selectionV
       <p style={{ textAlign: "center", margin:'25px', fontSize:'1.25rem'}}>
        We estimate your project will cost between {`${selectionValueOne} and ${selectionValueTwo}`}. Please complete the web form below for an exact project quote from a Take2 website design strategist.
       </p>
-</div>
-    
-    <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: "center",
-            alignItems: 'center',
-         gap:'20px'
-            }}>
-            <h3>Quote Details</h3>
-      <ul style={{
-          
-           listStyle: "none",
 
+    
+    <div 
+    className="quoteDetailsList">
+          
+            <h3 style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center' }}>
+            Quote 
+            <br />
+            Details
+            </h3>
+      <ul
+      style={{
+          listStyle: "none",
+          backgroundColor: 'hsl(240, 100%, 10%)',
+          padding:'20px',
+          borderRadius: "10px",
         }}>
         {quoteListItems.map((quoteItem, index) => (
           <li key={index}>
@@ -82,7 +83,7 @@ function QuoteFormPage({ quoteListItems, selectionValues, headerRefs, selectionV
       <li style={{    fontSize: "1rem", fontWeight: 'bold' }}>Quote Range: {`${selectionValueOne} - ${selectionValueTwo}`}</li>
       </ul>
     </div>
-
+</div>
     </>
   );
 }
