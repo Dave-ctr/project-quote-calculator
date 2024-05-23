@@ -31,6 +31,7 @@ const Heading = styled("h1")({
   fontSize: "3rem",
   fontWeight: "bolder",
   textAlign: "center",
+  paddingTop: "25px",
 });
 
 function Home({
@@ -51,7 +52,8 @@ function Home({
       style={{
         backgroundColor: " #0e2949",
         color: "white",
-        padding: "25px",
+        padding: "0px 25px",
+        paddingBottom:'25px',
         borderRadius: "10px",
       }}
     >
