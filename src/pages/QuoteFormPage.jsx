@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useRef} from "react";
 import { Link } from "react-router-dom";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/system";
+import axios from "axios";
 import recoletaFont from "../assets/fonts/Recoleta-RegularDEMO.otf";
 import montserratFont from "../assets/fonts/Montserrat-VariableFont_wght.ttf";
 
@@ -40,11 +41,51 @@ function QuoteFormPage({
   selectionValueOne,
   selectionValueTwo,
 }) {
-  headerRefs.current = quoteListItems.map(
-    (_, i) => headerRefs.current[i] ?? React.createRef()
-  );
+  
+    headerRefs.current = quoteListItems.map(
+      (_, i) => headerRefs.current[i] ?? React.createRef()
+    );
+  
+  const [formData, setFormData] = useState({
+    nameInput: "",
+    emailInput: "",
+    phoneNumberInput: "",
+    companyInput: "",
+    websiteInput: "",
+  });
 
-  const handleSubmit = () => {}
+  const [submissionStatus, setSubmissionStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const dataToSubmit = {
+      ...formData,
+      quoteDetails: quoteListItems.map((item, index) => ({
+        quoteName: item.quoteName,
+        selectionValue: selectionValues[index],
+      })),
+      quoteRange: `${selectionValueOne} - ${selectionValueTwo}`,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:5000/submit-form", dataToSubmit);
+      if (response.status === 200) {
+        setSubmissionStatus("Submission successful!");
+      } else {
+        setSubmissionStatus("Submission failed. Please try again.");
+      }
+    } catch (error) {
+      setSubmissionStatus("Submission failed. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -68,22 +109,27 @@ function QuoteFormPage({
           strategist.
         </p>
 
-        <form action="http://www.activeCampaign.com">
+        <form onSubmit={handleSubmit}>
           <div className="quoteFormList">
             <label htmlFor="nameInput">Name</label>
-            <input type="text" required id="nameInput" />
+            <input type="text" required id="nameInput"   value={formData.name}
+              onChange={(e) => handleChange(e)}/>
             <label htmlFor="emailInput">Email</label>
-            <input type="email" required id="emailInput" />
+            <input type="email" required id="emailInput" value={formData.email}
+              onChange={(e) => handleChange(e)}/>
             <label htmlFor="phoneNumberInput">
               Phone
               <br />
               Number
             </label>
-            <input type="tel" required id="phoneNumberInput" />
+            <input type="tel" required id="phoneNumberInput"    value={formData.phone}
+           onChange={(e) => handleChange(e)}/>
             <label htmlFor="companyInput">Company</label>
-            <input type="text" id="companyInput" />
+            <input type="text" id="companyInput"   value={formData.company}
+          onChange={(e) => handleChange(e)}/>
             <label htmlFor="websiteInput">Website</label>
-            <input type="text" id="websiteInput" />
+            <input type="text" id="websiteInput"    value={formData.website}
+        onChange={(e) => handleChange(e)}/>
           </div>
           <div className="quoteDetailsList">
             <h3
@@ -124,7 +170,7 @@ function QuoteFormPage({
               </li>
             </ul>
           </div>
-        </form>
+   
         <div
           style={{
             margin: "0px auto",
@@ -132,9 +178,9 @@ function QuoteFormPage({
             width: "fit-content",
           }}
         >
-          <Link to="/register" style={{ textDecoration: "none" }}>
+      
             <button
-              onClick={handleSubmit}
+              type='submit'
               style={{
                 padding: "5px 25px",
                 fontSize: "1.5rem",
@@ -154,8 +200,14 @@ function QuoteFormPage({
             >
               Send me a proposal
             </button>
-          </Link>
+       
         </div>
+        </form>
+        {submissionStatus && (
+          <p style={{ textAlign: "center", marginTop: "20px" }}>
+            {submissionStatus}
+          </p>
+        )}
       </div>
     </>
   );

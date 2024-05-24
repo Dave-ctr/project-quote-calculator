@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import React, { useState, useRef} from "react";
 import { Routes, Route } from "react-router-dom";
 import { initialQuoteItemsArray } from "./quoteData.js";
 import Home from "./pages/Home.jsx";

@@ -1,0 +1,42 @@
+{
+  "nameInput": "Dave Jamieson",
+  "emailInput": "davejtake2@gmail.com",
+  "phoneNumberInput": "0210465090",
+  "companyInput": "Take2",
+  "websiteInput": "",
+  "quoteDetails": [
+    {
+      "quoteName": "number of pages",
+      "selectionValue": "50 - 150"
+    },
+    {
+      "quoteName": "style of design",
+      "selectionValue": "High End"
+    },
+    {
+      "quoteName": "seo integration",
+      "selectionValue": "Yes"
+    },
+    {
+      "quoteName": "responsive design",
+      "selectionValue": "Yes"
+    },
+    {
+      "quoteName": "e-commerce functionality",
+      "selectionValue": "None"
+    },
+    {
+      "quoteName": "database integration",
+      "selectionValue": "None"
+    },
+    {
+      "quoteName": "cms integration",
+      "selectionValue": "None"
+    },
+    {
+      "quoteName": "platform",
+      "selectionValue": "Custom"
+    }
+  ],
+  "quoteRange": "$18500 - $38500"
+}
