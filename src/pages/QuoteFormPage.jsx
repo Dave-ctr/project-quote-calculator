@@ -138,17 +138,17 @@ function QuoteFormPage({
           <form onSubmit={handleSubmit}>
             <div className="quoteFormList">
               <label htmlFor="nameInput">Name</label>
-              <input type="text" required id="nameInput"   value={formData.name}
+              <input type="text" id="nameInput"   value={formData.name}
                 onChange={(e) => handleChange(e)}/>
               <label htmlFor="emailInput">Email</label>
-              <input type="email" required id="emailInput" value={formData.email}
+              <input type="email" id="emailInput" value={formData.email}
                 onChange={(e) => handleChange(e)}/>
               <label htmlFor="phoneNumberInput">
                 Phone
                 <br />
                 Number
               </label>
-              <input type="tel" required id="phoneNumberInput"    value={formData.phone}
+              <input type="tel" id="phoneNumberInput"    value={formData.phone}
             onChange={(e) => handleChange(e)}/>
               <label htmlFor="companyInput">Company</label>
               <input type="text" id="companyInput"   value={formData.company}
