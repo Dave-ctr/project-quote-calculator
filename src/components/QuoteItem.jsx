@@ -33,7 +33,7 @@ function QuoteItem({
               display: "none",
             },
             "& .MuiSlider-track": {
-              height: 16,
+              height: 16,display: itemSliderValue === 0 ? 'none' : 'block',
             },
             "& .MuiSlider-rail": {
               height: 16,

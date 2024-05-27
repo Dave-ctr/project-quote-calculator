@@ -36,6 +36,7 @@ function App() {
     const quoteName = headerReference.current.innerText;
 
     let updatedSelectionValues = [...selectionValues];
+console.log(selectionValues);
 
     if (headerReference) {
       if (quoteName === "NUMBER OF PAGES") {
@@ -61,13 +62,13 @@ function App() {
           updatedSelectionValues[index] = quoteListItems[1].selectionFour;
         }
       } else if (quoteName === "SEO INTEGRATION") {
-        if (sliderValue === 50) {
+        if (sliderValue === 0) {
           updatedSelectionValues[index] = quoteListItems[2].selectionOne;
         } else if (sliderValue === 100) {
           updatedSelectionValues[index] = quoteListItems[2].selectionTwo;
         }
       } else if (quoteName === "RESPONSIVE DESIGN") {
-        if (sliderValue === 50) {
+        if (sliderValue === 0) {
           updatedSelectionValues[index] = quoteListItems[3].selectionOne;
         } else if (sliderValue === 100) {
           updatedSelectionValues[index] = quoteListItems[3].selectionTwo;

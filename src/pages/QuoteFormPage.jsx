@@ -1,10 +1,12 @@
-import React, { useState, useRef} from "react";
+import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { Global } from "@emotion/react";
 import { styled } from "@mui/system";
 import axios from "axios";
 import recoletaFont from "../assets/fonts/Recoleta-RegularDEMO.otf";
 import montserratFont from "../assets/fonts/Montserrat-VariableFont_wght.ttf";
+import SubmissionModal from "../components/Modal";
+import { useNavigate } from "react-router-dom";
 
 const GlobalStyles = () => (
   <Global
@@ -41,7 +43,8 @@ function QuoteFormPage({
   selectionValueOne,
   selectionValueTwo,
 }) {
-  
+    const navigate = useNavigate();
+
     headerRefs.current = quoteListItems.map(
       (_, i) => headerRefs.current[i] ?? React.createRef()
     );
@@ -55,6 +58,8 @@ function QuoteFormPage({
   });
 
   const [submissionStatus, setSubmissionStatus] = useState(null);
+  const [submissionModalOpen, setSubmissionModalOpen] = useState(false);
+  const [submissionModalMessage, setSubmissionModalMessage] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -62,6 +67,17 @@ function QuoteFormPage({
       [e.target.id]: e.target.value,
     });
   };
+
+  const handleSubmissionFormClose = () => {
+    console.log("Submission modal closed");
+    setSubmissionModalOpen(false);
+    navigate("/");
+  }
+  
+  const handleSubmissionFormOpen = (message) => {
+    setSubmissionModalMessage(message);
+    setSubmissionModalOpen(true);
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -79,138 +95,149 @@ function QuoteFormPage({
       const response = await axios.post("http://localhost:5000/submit-form", dataToSubmit);
       if (response.status === 200) {
         setSubmissionStatus("Submission successful!");
+        handleSubmissionFormOpen("Submission successful!");
+        // handleOpen and pass in a success message
       } else {
         setSubmissionStatus("Submission failed. Please try again.");
+        handleSubmissionFormOpen("Submission failed. Please try again.");
+        // handleOpen and pass in a failure message 
       }
     } catch (error) {
       setSubmissionStatus("Submission failed. Please try again.");
-    }
+      // handleOpen and pass in a failure message 
+    } 
   };
 
   return (
     <>
+      <SubmissionModal 
+        open={submissionModalOpen}  
+        submissionModalMessage={submissionModalMessage}
+        handleSubmissionFormClose={handleSubmissionFormClose}  
+      />      
       <div
-        className="quoteFormContainer"
-        style={{
-          backgroundColor: " #0e2949",
-          color: "white",
-          borderRadius: "10px",
-        }}
-      >
-        <GlobalStyles />
-        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-          <Heading>Project Quote Calculator</Heading>
-        </Link>
-
-        <p style={{ textAlign: "center", margin: "25px", fontSize: "1.25rem" }}>
-          We estimate your project will cost between{" "}
-          {`${selectionValueOne} and ${selectionValueTwo}`}. Please complete the
-          web form below for an exact project quote from a Take2 website design
-          strategist.
-        </p>
-
-        <form onSubmit={handleSubmit}>
-          <div className="quoteFormList">
-            <label htmlFor="nameInput">Name</label>
-            <input type="text" required id="nameInput"   value={formData.name}
-              onChange={(e) => handleChange(e)}/>
-            <label htmlFor="emailInput">Email</label>
-            <input type="email" required id="emailInput" value={formData.email}
-              onChange={(e) => handleChange(e)}/>
-            <label htmlFor="phoneNumberInput">
-              Phone
-              <br />
-              Number
-            </label>
-            <input type="tel" required id="phoneNumberInput"    value={formData.phone}
-           onChange={(e) => handleChange(e)}/>
-            <label htmlFor="companyInput">Company</label>
-            <input type="text" id="companyInput"   value={formData.company}
-          onChange={(e) => handleChange(e)}/>
-            <label htmlFor="websiteInput">Website</label>
-            <input type="text" id="websiteInput"    value={formData.website}
-        onChange={(e) => handleChange(e)}/>
-          </div>
-          <div className="quoteDetailsList">
-            <h3
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                fontSize: "1.25rem",
-                fontWeight: "bold",
-              }}
-            >
-              Quote
-              <br />
-              Details
-            </h3>
-            <ul
-              style={{
-                listStyle: "none",
-                backgroundColor: "hsl(240, 100%, 10%)",
-                padding: "20px",
-                borderRadius: "10px",
-              }}
-            >
-              {quoteListItems.map((quoteItem, index) => (
-                <li key={index}>
-                  <h6
-                    ref={headerRefs.current[index]}
-                    style={{ fontSize: "1rem" }}
-                  >
-                    {quoteItem.quoteName.toUpperCase()}:{" "}
-                    {selectionValues[index]}
-                  </h6>
-                </li>
-              ))}
-              <li style={{ fontSize: "1rem", fontWeight: "bold" }}>
-                QUOTE RANGE: {`${selectionValueOne} - ${selectionValueTwo}`}
-              </li>
-            </ul>
-          </div>
-   
-        <div
+          className="quoteFormContainer"
           style={{
-            margin: "0px auto",
-            paddingBottom: "50px",
-            width: "fit-content",
+            backgroundColor: " #0e2949",
+            color: "white",
+            borderRadius: "10px",
           }}
         >
-      
-            <button
-              type='submit'
-              style={{
-                padding: "5px 25px",
-                fontSize: "1.5rem",
-                borderRadius: "10px",
-                backgroundColor: "#ff2d65",
-                cursor: "pointer",
-                transition: "background-color 0.5s ease, color 0.5s ease",
-              }}
-              onMouseEnter={(e) => (
-                (e.target.style.backgroundColor = "#41426d"),
-                (e.target.style.color = "white")
-              )}
-              onMouseLeave={(e) => (
-                (e.target.style.backgroundColor = "#ff2d65"),
-                (e.target.style.color = "black")
-              )}
-            >
-              Send me a proposal
-            </button>
-       
-        </div>
-        </form>
-        {submissionStatus && (
-          <p style={{ textAlign: "center", marginTop: "20px" }}>
-            {submissionStatus}
+          <GlobalStyles />
+          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+            <Heading>Project Quote Calculator</Heading>
+          </Link>
+
+          <p style={{ textAlign: "center", margin: "25px", fontSize: "1.25rem" }}>
+            We estimate your project will cost between{" "}
+            {`${selectionValueOne} and ${selectionValueTwo}`}. Please complete the
+            web form below for an exact project quote from a Take2 website design
+            strategist.
           </p>
-        )}
+
+          <form onSubmit={handleSubmit}>
+            <div className="quoteFormList">
+              <label htmlFor="nameInput">Name</label>
+              <input type="text" required id="nameInput"   value={formData.name}
+                onChange={(e) => handleChange(e)}/>
+              <label htmlFor="emailInput">Email</label>
+              <input type="email" required id="emailInput" value={formData.email}
+                onChange={(e) => handleChange(e)}/>
+              <label htmlFor="phoneNumberInput">
+                Phone
+                <br />
+                Number
+              </label>
+              <input type="tel" required id="phoneNumberInput"    value={formData.phone}
+            onChange={(e) => handleChange(e)}/>
+              <label htmlFor="companyInput">Company</label>
+              <input type="text" id="companyInput"   value={formData.company}
+            onChange={(e) => handleChange(e)}/>
+              <label htmlFor="websiteInput">Website</label>
+              <input type="text" id="websiteInput"    value={formData.website}
+          onChange={(e) => handleChange(e)}/>
+            </div>
+            <div className="quoteDetailsList">
+              <h3
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  fontSize: "1.25rem",
+                  fontWeight: "bold",
+                }}
+              >
+                Quote
+                <br />
+                Details
+              </h3>
+              <ul
+                style={{
+                  listStyle: "none",
+                  backgroundColor: "hsl(240, 100%, 10%)",
+                  padding: "20px",
+                  borderRadius: "10px",
+                }}
+              >
+                {quoteListItems.map((quoteItem, index) => (
+                  <li key={index}>
+                    <h6
+                      ref={headerRefs.current[index]}
+                      style={{ fontSize: "1rem" }}
+                    >
+                      {quoteItem.quoteName.toUpperCase()}:{" "}
+                      {selectionValues[index]}
+                    </h6>
+                  </li>
+                ))}
+                <li style={{ fontSize: "1rem", fontWeight: "bold" }}>
+                  QUOTE RANGE: {`${selectionValueOne} - ${selectionValueTwo}`}
+                </li>
+              </ul>
+            </div>
+    
+          <div
+            style={{
+              margin: "0px auto",
+              paddingBottom: "50px",
+              width: "fit-content",
+            }}
+          >
+        
+              <button
+                type='submit'
+                style={{
+                  padding: "5px 25px",
+                  fontSize: "1.5rem",
+                  borderRadius: "10px",
+                  backgroundColor: "#ff2d65",
+                  cursor: "pointer",
+                  transition: "background-color 0.5s ease, color 0.5s ease",
+                }}
+                onMouseEnter={(e) => (
+                  (e.target.style.backgroundColor = "#41426d"),
+                  (e.target.style.color = "white")
+                )}
+                onMouseLeave={(e) => (
+                  (e.target.style.backgroundColor = "#ff2d65"),
+                  (e.target.style.color = "black")
+                )}
+              >
+                Send me a proposal
+              </button>
+        
+          </div>
+          </form>
+          {submissionStatus && (
+            <p style={{ textAlign: "center", marginTop: "20px" }}>
+              {submissionStatus}
+            </p>
+          )}
       </div>
     </>
   );
 }
 
 export default QuoteFormPage;
+

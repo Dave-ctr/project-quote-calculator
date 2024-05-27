@@ -25,8 +25,8 @@ export const initialQuoteItemsArray = [
     },
     {
       quoteName: 'seo integration',
-      startingValue: 50,
-      steps: 50,
+      startingValue: 0,
+      steps: 100,
       selectionOne: 'No',
       selectionTwo: 'Yes',
       costOne: 0,
@@ -35,8 +35,8 @@ export const initialQuoteItemsArray = [
     },
     {
       quoteName: 'responsive design',
-      startingValue: 50,
-      steps: 50,
+      startingValue: 0,
+      steps: 100,
       selectionOne: 'No',
       selectionTwo: 'Yes',
       costOne: 0,
