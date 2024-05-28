@@ -21,6 +21,7 @@ function SubmissionModal({open, handleSubmissionFormClose, submissionModalMessag
     return (
         <div>      
             <Modal
+            style={{display: "flex", alignItems: "center", justifyContent: "center"}}
                 open={open}
                 onClose={handleSubmissionFormClose}
                 aria-labelledby="modal-modal-title"

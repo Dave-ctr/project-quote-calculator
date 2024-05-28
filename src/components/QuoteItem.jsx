@@ -1,5 +1,5 @@
 import Slider from "@mui/material/Slider";
-import Stack from "@mui/material/Stack";
+import {useState, useEffect} from "react";
 
 function QuoteItem({
   quoteItem,
@@ -8,6 +8,21 @@ function QuoteItem({
   selectionValue,
   headerReference,
 }) {
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(()=>{
+    const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+        window.removeEventListener('resize', handleResize)
+    }
+}, [])
+
   return (
     <>
       <li style={{display:'flex', alignItems:'center', }}>
