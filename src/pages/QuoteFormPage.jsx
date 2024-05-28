@@ -156,8 +156,7 @@ function QuoteFormPage({
             p: 4,
           }}
         >
-          {" "}
-          It is Loading{" "}
+          It is Loading
         </h1>
       ) : (
         <SubmissionModal
@@ -188,7 +187,7 @@ function QuoteFormPage({
 
         <form onSubmit={handleSubmit}>
           <div className="quoteFormList">
-            <label htmlFor="nameInput">Name</label>
+            <label htmlFor="nameInput"><span>Name<span style={{ color: 'red', paddingLeft: '10px',verticalAlign: 'middle' }}>*</span></span></label>
             <input
               type="text"
               id="nameInput"
@@ -196,7 +195,9 @@ function QuoteFormPage({
               value={formData.name}
               onChange={(e) => handleChange(e)}
             />
-            <label htmlFor="emailInput">Email</label>
+  <label htmlFor="emailInput">
+  <span>Email<span style={{ color: 'red', paddingLeft: '10px', verticalAlign: 'middle'  }}>*</span></span>
+</label>
             <input
               type="email"
               id="emailInput"
@@ -206,8 +207,8 @@ function QuoteFormPage({
             />
             <label htmlFor="phoneNumberInput">
               Phone
-              <br />
-              Number
+              <br /><span>
+              Number<span style={{ color: 'red', paddingLeft: '10px',verticalAlign: 'middle' }}>*</span></span>
             </label>
             <input
               type="tel"
