@@ -3,15 +3,16 @@
   "emailInput": "davejtake2@gmail.com",
   "phoneNumberInput": "0210465090",
   "companyInput": "Take2",
-  "websiteInput": "",
+  "websiteInput": "Any site you like",
+  "additionalInfoInput": "All the demands under the sun",
   "quoteDetails": [
     {
       "quoteName": "number of pages",
-      "selectionValue": "50 - 150"
+      "selectionValue": "250+"
     },
     {
       "quoteName": "style of design",
-      "selectionValue": "High End"
+      "selectionValue": "World Class"
     },
     {
       "quoteName": "seo integration",
@@ -23,20 +24,20 @@
     },
     {
       "quoteName": "e-commerce functionality",
-      "selectionValue": "None"
+      "selectionValue": "Enterprise"
     },
     {
       "quoteName": "database integration",
-      "selectionValue": "None"
+      "selectionValue": "Enterprise"
     },
     {
       "quoteName": "cms integration",
-      "selectionValue": "None"
+      "selectionValue": "Enterprise"
     },
     {
       "quoteName": "platform",
       "selectionValue": "Custom"
     }
   ],
-  "quoteRange": "$18500 - $38500"
+  "quoteRange": "$91500 - Sky's The Limit Baby"
 }

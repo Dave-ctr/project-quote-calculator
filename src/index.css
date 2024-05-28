@@ -53,7 +53,6 @@
     background-color: hsl(240, 100%, 10%);
     color: white;
     font-size: 1rem;
-    font-weight: bold;
     border-radius: 10px;
     padding: 0px 20px;
   }
@@ -78,10 +77,10 @@
     column-gap: 20px;
     row-gap: 15px;
   }
-.quoteForm li{
-display: flex;
-align-items: center;
-}
+  .quoteForm li {
+    display: flex;
+    align-items: center;
+  }
   .quoteForm > li h6 {
     font-size: 1rem;
   }
@@ -89,7 +88,7 @@ align-items: center;
     font-size: 1.25rem;
   }
   .quoteSelectionValue {
-  min-height: 2.25rem;
+    min-height: 2.25rem;
   }
   .quoteDetailsList {
     display: grid;
@@ -116,7 +115,6 @@ align-items: center;
     background-color: hsl(240, 100%, 10%);
     color: white;
     font-size: 1rem;
-    font-weight: bold;
     border-radius: 10px;
     padding: 0px 20px;
   }
