@@ -292,6 +292,7 @@ function QuoteFormPage({
             <button
               type="submit"
               style={{
+                border: "none",
                 padding: "5px 25px",
                 fontSize: "1.5rem",
                 borderRadius: "10px",

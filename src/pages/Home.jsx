@@ -82,6 +82,7 @@ function Home({
           <button
             onClick={() => calculateTotalCost(selectionValues)}
             style={{
+              border: "none",
               padding: "5px 25px",
               fontSize: "1.5rem",
               borderRadius: "10px",
