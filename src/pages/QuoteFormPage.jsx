@@ -24,6 +24,11 @@ const GlobalStyles = () => (
       body, button {
         font-family: 'Montserrat', sans-serif; 
       }
+      input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px hsl(240, 100%, 10%) inset !important;
+        -webkit-text-fill-color: white !important;
+        font-family: 'Montserrat', sans-serif !important;
+      }
     `}
   />
 );
