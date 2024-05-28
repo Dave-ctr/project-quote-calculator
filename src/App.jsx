@@ -1,4 +1,4 @@
-import React, { useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import { initialQuoteItemsArray } from "./quoteData.js";
 import Home from "./pages/Home.jsx";
@@ -14,17 +14,17 @@ function App() {
     initialQuoteItemsArray.map((item) => item.selectionOne)
   );
 
-  const [selectionValueOne, setSelectionValueOne] = useState('');
-  const [selectionValueTwo, setSelectionValueTwo] = useState('');
+  const [selectionValueOne, setSelectionValueOne] = useState("");
+  const [selectionValueTwo, setSelectionValueTwo] = useState("");
 
   const headerRefs = useRef([]);
 
   const pageRanges = {
-    '1 - 10': { min: 1, max: 10 },
-    '10 - 50': { min: 10, max: 50 },
-    '50 - 150': { min: 50, max: 150 },
-    '150 - 250': { min: 150, max: 250 },
-    '250+': { min: 250, max: 250 }
+    "1 - 10": { min: 1, max: 10 },
+    "10 - 50": { min: 10, max: 50 },
+    "50 - 150": { min: 50, max: 150 },
+    "150 - 250": { min: 150, max: 250 },
+    "250+": { min: 250, max: 250 },
   };
 
   const handleUpdateSelectionValue = (_event, sliderValue, index) => {
@@ -36,7 +36,6 @@ function App() {
     const quoteName = headerReference.current.innerText;
 
     let updatedSelectionValues = [...selectionValues];
-console.log(selectionValues);
 
     if (headerReference) {
       if (quoteName === "NUMBER OF PAGES") {
@@ -104,6 +103,7 @@ console.log(selectionValues);
           updatedSelectionValues[index] = quoteListItems[6].selectionFour;
         }
       } else if (quoteName === "PLATFORM") {
+        updatedSelectionValues[index] = sliderValue;
         if (sliderValue === 12.5) {
           updatedSelectionValues[index] = quoteListItems[7].selectionOne;
         } else if (sliderValue === 25) {
@@ -129,10 +129,10 @@ console.log(selectionValues);
 
   const calculateTotalCost = (selectionValues) => {
     const designCosts = {
-      'Simple': 1000,
-      'Moderate': 3000,
-      'High End': 5000,
-      'World Class': 10000,
+      Simple: 1000,
+      Moderate: 3000,
+      "High End": 5000,
+      "World Class": 10000,
     };
 
     const eCommerceCosts = {
@@ -174,31 +174,45 @@ console.log(selectionValues);
     const baseCost = designCosts[selectionValues[1]];
     const pagesCostMin = minPages * 100;
     const pagesCostMax = maxPages * 100;
-    const seoCostMin = selectionValues[2] === 'Yes' ? (minPages * 100 + 2000) : 0;
-    const seoCostMax = selectionValues[2] === 'Yes' ? (maxPages * 100 + 2000) : 0;
-    const responsiveDesignCost = selectionValues[3] === 'Yes' ? 1500 : 0;
+    const seoCostMin = selectionValues[2] === "Yes" ? minPages * 100 + 2000 : 0;
+    const seoCostMax = selectionValues[2] === "Yes" ? maxPages * 100 + 2000 : 0;
+    const responsiveDesignCost = selectionValues[3] === "Yes" ? 1500 : 0;
     const eCommerceCost = eCommerceCosts[selectionValues[4]];
     const databaseCost = databaseCosts[selectionValues[5]];
     const cmsCost = cmsCosts[selectionValues[6]];
     const platformDiscount = platformDiscounts[selectionValues[7]] / 100;
 
-    const totalCostMinBeforeDiscount = baseCost + pagesCostMin + seoCostMin + responsiveDesignCost + eCommerceCost + databaseCost + cmsCost;
-    const totalCostMaxBeforeDiscount = baseCost + pagesCostMax + seoCostMax + responsiveDesignCost + eCommerceCost + databaseCost + cmsCost;
+    const totalCostMinBeforeDiscount =
+      baseCost +
+      pagesCostMin +
+      seoCostMin +
+      responsiveDesignCost +
+      eCommerceCost +
+      databaseCost +
+      cmsCost;
+    const totalCostMaxBeforeDiscount =
+      baseCost +
+      pagesCostMax +
+      seoCostMax +
+      responsiveDesignCost +
+      eCommerceCost +
+      databaseCost +
+      cmsCost;
 
     const totalCostMin = totalCostMinBeforeDiscount * (1 - platformDiscount);
     const totalCostMax = totalCostMaxBeforeDiscount * (1 - platformDiscount);
 
-    if (selectionValues[0] === '250+') { 
+    if (selectionValues[0] === "250+") {
       let selectionValueOne = `$${Math.ceil(totalCostMin)}`;
-      let selectionValueTwo = `Sky's The Limit Baby`; 
+      let selectionValueTwo = `Sky's The Limit Baby`;
       setSelectionValueOne(selectionValueOne);
       setSelectionValueTwo(selectionValueTwo);
-    }else{ 
+    } else {
       let selectionValueOne = `$${Math.ceil(totalCostMin)}`;
       let selectionValueTwo = `$${Math.ceil(totalCostMax)}`;
       setSelectionValueOne(selectionValueOne);
       setSelectionValueTwo(selectionValueTwo);
-    };
+    }
   };
 
   return (

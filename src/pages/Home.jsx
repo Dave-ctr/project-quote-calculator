@@ -53,7 +53,7 @@ function Home({
         backgroundColor: " #0e2949",
         color: "white",
         padding: "0px 25px",
-        paddingBottom:'25px',
+        paddingBottom: "25px",
         borderRadius: "10px",
       }}
     >

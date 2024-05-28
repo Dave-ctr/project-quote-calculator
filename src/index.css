@@ -8,109 +8,116 @@
   .quoteForm {
     grid-template-columns: 1fr;
     font-size: 1rem;
-    font-weight:'bold';
+    font-weight: "bold";
     row-gap: 10px;
   }
-  .quoteForm>li h6{
+  .quoteForm > li h6 {
     font-size: 1rem;
   }
-  .quoteForm>li p{
+  .quoteForm > li p {
     font-size: 1.5rem;
     font-weight: bolder;
   }
-  .quoteSelectionValue{
+  .quoteSelectionValue {
     margin-bottom: 2rem;
-    padding:15px;
+    padding: 15px;
   }
-  .quoteFormContainer{
+  .quoteFormContainer {
     padding: 0px 20px;
     gap: 20px;
-   }
-   .quoteDetailsList{
+  }
+  .quoteDetailsList {
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
     margin: 25px 0px;
-   }
-   .quoteDetailsList h3{
-margin-bottom: 25px;
-   }
-   .quoteFormList{
+  }
+  .quoteDetailsList h3 {
+    margin-bottom: 25px;
+  }
+  .quoteFormList {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr;
     row-gap: 25px;
-   }
-   .quoteFormList label{
+  }
+  .quoteFormList label {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
     font-weight: bold;
-   }
-   .quoteFormList input{
+  }
+  .quoteFormList input {
     background-color: hsl(240, 100%, 10%);
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
     border-radius: 10px;
     padding: 0px 20px;
   }
-  .quoteFormContainer button{
+  .quoteFormContainer button {
     margin-top: 25px;
   }
 }
 
 @media (min-width: 769px) {
- .quoteFormContainer{
-  margin: 50px;
-  padding: "75px",
- }
- .quoteItemContainer{
-  margin: 50px;
- }
- .quoteItemContainer button{
-  margin-top: 15px;
- }
+  .quoteFormContainer {
+    margin: 50px;
+    padding: "75px";
+  }
+  .quoteItemContainer {
+    margin: 50px;
+  }
+  .quoteItemContainer button {
+    margin-top: 15px;
+  }
   .quoteForm {
-  grid-template-columns: 0.5fr 1fr 0.5fr;
-  column-gap: 20px;
-  row-gap: 15px;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    column-gap: 20px;
+    row-gap: 15px;
+  }
+.quoteForm li{
+display: flex;
+align-items: center;
 }
-.quoteForm>li h6{
-  font-size: 1rem;
-}
-.quoteForm>li p{
-  font-size: 1.25rem;
-}
-.quoteDetailsList{
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  margin-top: 30px;
-  padding: 0px 50px 50px;
- }
- .quoteFormList{
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  row-gap: 25px;
-  padding: 0px 50px;
- }
- .quoteFormList label{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.25rem;
-  font-weight: bold;
- }
-.quoteFormList input{
-  background-color: hsl(240, 100%, 10%);
-color: white;
-font-size: 1rem;
-font-weight: bold;
-  border-radius: 10px;
-  padding: 0px 20px;
-}
+  .quoteForm > li h6 {
+    font-size: 1rem;
+  }
+  .quoteForm > li p {
+    font-size: 1.25rem;
+  }
+  .quoteSelectionValue {
+  min-height: 2.25rem;
+  }
+  .quoteDetailsList {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    margin-top: 30px;
+    padding: 0px 50px 50px;
+  }
+  .quoteFormList {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 25px;
+    padding: 0px 50px;
+  }
+  .quoteFormList label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  .quoteFormList input {
+    background-color: hsl(240, 100%, 10%);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0px 20px;
+  }
 }

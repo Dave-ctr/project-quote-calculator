@@ -1,5 +1,11 @@
 import Slider from "@mui/material/Slider";
 import {useState, useEffect} from "react";
+import { Select, MenuItem} from "@mui/material";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+const CustomArrowIcon = () => {
+  return <ArrowDropDownIcon style={{ color: 'white' }} />;
+};
 
 function QuoteItem({
   quoteItem,
@@ -21,7 +27,11 @@ function QuoteItem({
     return () => {
         window.removeEventListener('resize', handleResize)
     }
-}, [])
+}, [windowWidth])
+
+const handleSelectChange = (event) => {
+  handleUpdateSelectionValue(event, event.target.value, quoteItem.index);
+};
 
   return (
     <>
@@ -33,6 +43,47 @@ function QuoteItem({
       {window.innerWidth >= 769 ?
       <>
       <li>
+
+      {quoteItem.quoteName.toUpperCase() === "PLATFORM" ? (
+        <Select
+        name="platformSelection"
+          value={selectionValue}
+          onChange={handleSelectChange}
+          fullWidth
+          IconComponent={CustomArrowIcon}
+          sx={{
+                  fontSize: '1rem',
+                  color: "#1976D2",
+                  backgroundColor: '#1976D2',
+                  borderRadius: '10px',
+                  height: 16,
+                  '& .MuiSelect-select': {
+                    padding: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'transparent',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#ccc',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#aaa',
+                  },
+                }}
+        >
+          <MenuItem value="Custom">Custom</MenuItem>
+          <MenuItem value="Shopify">Shopify</MenuItem>
+          <MenuItem value="Webflow">Webflow</MenuItem>
+          <MenuItem value="Wix">Wix</MenuItem>
+          <MenuItem value="Rocketspark">Rocketspark</MenuItem>
+          <MenuItem value="Squarespace">Squarespace</MenuItem>
+          <MenuItem value="Wordpress">Wordpress</MenuItem>
+          <MenuItem value="Woocommerce">Woocommerce</MenuItem>
+        </Select>
+      ) :(
+
         <Slider
           onChange={(event, sliderValue) => {
             if (sliderValue >= quoteItem.startingValue) {
@@ -57,7 +108,7 @@ function QuoteItem({
               color: "white",
             },
           }}
-        />
+        />)}
       </li>
       <li className='quoteSelectionValue' style={{backgroundColor:'white', color: '#0e2949', display:'flex', justifyContent:'center', alignItems:'center', fontWeight:'bolder', borderRadius:'10px'}}>
         <p style={{fontWeight:'bold'}}>{selectionValue}</p>
@@ -69,6 +120,45 @@ function QuoteItem({
         <p style={{fontWeight:'bold'}}>{selectionValue}</p>
       </li>
       <li>
+      {quoteItem.quoteName.toUpperCase() === "PLATFORM" ? (
+        <Select
+        name="platformSelection"
+          value={selectionValue}
+          onChange={handleSelectChange}
+          fullWidth
+          IconComponent={CustomArrowIcon}
+          sx={{
+                  fontSize: '1rem',
+                  color: "#1976D2",
+                  backgroundColor: '#1976D2',
+                  borderRadius: '10px',
+                  height: 16,
+                  '& .MuiSelect-select': {
+                    padding: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                  },
+                  '& .MuiOutlinedInput-notchedOutline': {
+                    borderColor: 'transparent',
+                  },
+                  '&:hover .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#ccc',
+                  },
+                  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#aaa',
+                  },
+                }}
+        >
+          <MenuItem value="Custom">Custom</MenuItem>
+          <MenuItem value="Shopify">Shopify</MenuItem>
+          <MenuItem value="Webflow">Webflow</MenuItem>
+          <MenuItem value="Wix">Wix</MenuItem>
+          <MenuItem value="Rocketspark">Rocketspark</MenuItem>
+          <MenuItem value="Squarespace">Squarespace</MenuItem>
+          <MenuItem value="Wordpress">Wordpress</MenuItem>
+          <MenuItem value="Woocommerce">Woocommerce</MenuItem>
+        </Select>
+      ) :(
         <Slider
           onChange={(event, sliderValue) => {
             if (sliderValue >= quoteItem.startingValue) {
@@ -93,7 +183,7 @@ function QuoteItem({
               color: "white",
             },
           }}
-        />
+        />)}
       </li>
 
       </>
