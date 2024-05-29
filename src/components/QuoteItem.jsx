@@ -10,9 +10,9 @@ const CustomArrowIcon = () => {
 const StyledMenuProps = {
   PaperProps: {
     style: {
-      backgroundColor: "#0e2949", 
-      color: "white", 
-      borderRadius: "10px", 
+      backgroundColor: "#0e2949",
+      color: "white",
+      borderRadius: "10px",
     },
   },
 };
@@ -98,7 +98,6 @@ function QuoteItem({
                 <MenuItem value="Squarespace">Squarespace</MenuItem>
                 <MenuItem value="Wordpress">Wordpress</MenuItem>
                 <MenuItem value="Woocommerce">Woocommerce</MenuItem>
-              
               </Select>
             ) : (
               <Slider
